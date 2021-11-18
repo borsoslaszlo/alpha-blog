@@ -1,0 +1,27 @@
+current directory: /home/laci/Work/Ruby/Ruby_on_Rails/alpha-blog/vendor/cache/ruby/2.5.0/gems/bootsnap-1.9.1/ext/bootsnap
+/usr/bin/ruby -r ./siteconf20211117-365919-1s31y73.rb extconf.rb
+creating Makefile
+
+current directory: /home/laci/Work/Ruby/Ruby_on_Rails/alpha-blog/vendor/cache/ruby/2.5.0/gems/bootsnap-1.9.1/ext/bootsnap
+make "DESTDIR=" clean
+rm -f 
+rm -f bootsnap.so  *.o  *.bak mkmf.log .*.time
+
+current directory: /home/laci/Work/Ruby/Ruby_on_Rails/alpha-blog/vendor/cache/ruby/2.5.0/gems/bootsnap-1.9.1/ext/bootsnap
+make "DESTDIR="
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.   -fPIC -O2 -g -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fexceptions -fstack-protector-strong -grecord-gcc-switches -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC -O3  -std=c99 -m64 -o bootsnap.o -c bootsnap.c
+bootsnap.c: In function ‘bs_rb_fetch’:
+bootsnap.c:742:13: warning: ‘output_data’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     else if (!NIL_P(output_data)) goto succeed; /* fast-path, goal */
+             ^
+bootsnap.c:705:9: note: ‘output_data’ was declared here
+   VALUE output_data;  /* return data, e.g. ruby hash or loaded iseq */
+         ^~~~~~~~~~~
+rm -f bootsnap.so
+gcc -shared -o bootsnap.so bootsnap.o -L. -L/usr/lib64 -L. -Wl,-z,relro  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,-z,relro  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -m64  -m64  -lruby    -lc
+
+current directory: /home/laci/Work/Ruby/Ruby_on_Rails/alpha-blog/vendor/cache/ruby/2.5.0/gems/bootsnap-1.9.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/mkdir -p . ./.gem.20211117-365919-1hjux05/bootsnap
+exit > .sitearchdir.-.bootsnap.time
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20211117-365919-1hjux05/bootsnap
