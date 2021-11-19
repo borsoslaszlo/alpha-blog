@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [:show,:edit,:update,:destroy]
+
     def show
         #byebug
-        @article = Article.find(params[:id])
         #article is instance variable!!! the [:id] will be the id parameter from url
     end
     def index
@@ -11,7 +12,7 @@ class ArticlesController < ApplicationController
         #render plain: params[:article]  #this is just for  debug , shows json structure 
         #@article = Article.new(params[:article])  #it is not allowed method because of security 
         # we have to whitelist the parameters that comes in 
-        @article = Article.new(params.require(:article).permit(:title,:description))
+        @article = Article.new(article_params)
         #render plain: params[:article].inspect  # this is just for debug 
 
       
@@ -32,11 +33,11 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
+
     end
     def update
-        @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title,:description))
+      
+        if @article.update(article_params)
             flash[:notice]="Article was updated successfully!"
             redirect_to @article
         else
@@ -46,9 +47,16 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = Article.find(params[:id])
         @article.destroy
         redirect_to articles_path
+    end
+
+    private 
+    def set_article
+        @article = Article.find(params[:id])
+    end
+    def article_params
+        params.require(:article).permit(:title,:description)
     end
 
 

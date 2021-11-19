@@ -13,9 +13,8 @@
   <body>
      <!-- this each method below is because of the flash helper -->
      <!-- this will show the flash value pair   -->
-    <% flash.each do |name,msg| %> 
-      <%=msg%>
-    <%end%>
+      <!-- in separated file layouts/messages  -->
+     <%= render 'layouts/messages'%>
     <%= yield %>
   </body>
 </html>
