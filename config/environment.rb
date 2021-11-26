@@ -4,6 +4,8 @@ require_relative "application"
 # Initialize the Rails application.
 Rails.application.initialize!
 
-ActionView::Base field_error_proc = Proc.new do |html_tag,instance|
+# the rails automatically inserts a field in case of error
+# this will prohibit that 
+ActionView::Base.field_error_proc=Proc.new do |html_tag,instance|
     html_tag.html_safe
 end
