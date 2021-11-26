@@ -19,3 +19,34 @@ font-size: 3rem;
     letter-spacing: -1px;
     font-weight: bold;
   }
+#home-container{
+    margin-top: 25px;
+    
+}
+.jumbotron{
+    background-image: asset-url('typewriter.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+}
+
+
+/* Sticky Footer Classes */
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color:lightgray ;
+}
+
+/* Other Classes for Page Styling */
+
+// body {
+//   background: white;
+//   background: linear-gradient(to right, #0062E6, #33AEFF);
+// }
