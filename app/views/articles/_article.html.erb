@@ -1,0 +1,37 @@
+     <% @articles.each do | article | %>
+
+            <!== the get method should not be specified because this is the default ==>
+            
+
+            <div class=container">
+                <div class="row justify-content-md-center">
+                    <div class="col-8 mt-4">
+                        <div class="card text-center shadow mb*5 bg-white rounded">
+                            <div class="card-header font-italic">
+                                by <%=article.user.username if article.user %>
+                            </div>
+                            <div class="card-body">
+                                <%
+=begin%>
+<h5 class="card-title"><%=article.title%></h5> 
+<%
+=end%>
+                                <h5 class="card-title"><%=link_to article.title,article_path(article.id),class: "text-success"%></h5>
+
+
+                                <p class="card-text"><%=truncate(article.description, length:100)%></p>
+                                <%=link_to "View",article_path(article.id), class:"btn btn-outline-success"%>
+                                <%=link_to "Edit",edit_article_path(article.id), class:"btn btn-outline-info"%>
+                                <%=link_to "Delete",article_path(article.id), class:"btn btn-outline-danger" ,  method: :delete, data: {confirm:'Are you sure?'}%>
+
+                            </div>
+                            <div class="card-footer"> 
+                                <small>Created <%=time_ago_in_words(article.created_at) %> ago
+                                <%=unless article.modified_at==nil then   ", edited "+ time_ago_in_words(article.modified_at) +" ago" end%> ago </small>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <% end %> 
