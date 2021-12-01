@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
         # we have to whitelist the parameters that comes in 
         @article = Article.new(article_params)
         #render plain: params[:article].inspect  # this is just for debug 
-        @article.user  = User.first
+        @article.user  = current_user
 
       
         if @article.save   # save the record 
