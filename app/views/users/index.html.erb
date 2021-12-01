@@ -1,5 +1,13 @@
     <h1 class="text-center mt-4">Alpha Bloggers</h1>
+
+    <div class="flickr_pagination text-center">
+    <%= will_paginate @user, :container => false %>
+    </div>
     <%= render 'user' %>
+    <div class="flickr_pagination text-center">
+    <%= will_paginate @user, :container => false %>
+    </div>
+
 
 
 

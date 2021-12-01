@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
         #article is instance variable!!! the [:id] will be the id parameter from url
     end
     def index
-        @articles=Article.all 
+        #@articles=Article.all 
+        @articles=Article.paginate(page: params[:page], per_page: 5)
+
     end
     def create
         #render plain: params[:article]  #this is just for  debug , shows json structure 
