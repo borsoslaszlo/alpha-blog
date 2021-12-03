@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
     end
     def create
+        byebug
         #render plain: params[:article]  #this is just for  debug , shows json structure 
         #@article = Article.new(params[:article])  #it is not allowed method because of security 
         # we have to whitelist the parameters that comes in 
@@ -61,7 +62,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
     def article_params
-        params.require(:article).permit(:title,:description)
+        params.require(:article).permit(:title,:description,category_ids:[])
     end
     def require_same_user
         if current_user!= @article.user && !current_user.admin?
