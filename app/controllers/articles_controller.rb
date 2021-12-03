@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     def show
         #byebug
         #article is instance variable!!! the [:id] will be the id parameter from url
+
     end
     def index
         #@articles=Article.all 
@@ -13,7 +14,7 @@ class ArticlesController < ApplicationController
 
     end
     def create
-        byebug
+        
         #render plain: params[:article]  #this is just for  debug , shows json structure 
         #@article = Article.new(params[:article])  #it is not allowed method because of security 
         # we have to whitelist the parameters that comes in 
